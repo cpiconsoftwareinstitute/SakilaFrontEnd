@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Frames, Frame, Frameset } from "./react-frames";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Films from "./pages/Films";
+import Menu from "./pages/Menu";
+import Header from "./pages/Header";
+
+export default function App() {
+	// Some state for toggling the border, resize and scrolling properties
+	let [frameBorder, setFrameBorder] = useState(true);
+	let [noResize, setNoResize] = useState(false);
+	let [scrolling, setScrolling] = useState(true);
+  let headerProps = {
+		frameBorder,
+		setFrameBorder,
+		noResize,
+		setNoResize,
+		scrolling,
+		setScrolling
+	};
+
+	let frameProps = {
+		frameBorder,
+		noResize,
+		scrolling,
+		stylesheet: "styles.css" // Shared stylesheet for all frames
+	};
+
+	return (
+		<Frames title="React Frames">
+			<Frameset rows="120,*" key={frameBorder}>
+				<Frame name="header" {...frameProps}>
+        <Header {...headerProps} />
+				</Frame>
+				<Frameset cols="200,*">
+					<Frame name="nav" {...frameProps}>
+						<Menu />
+					</Frame>
+					<Frame name="main" {...frameProps}>
+						<Films />
+					</Frame>
+				</Frameset>
+			</Frameset>
+		</Frames>
+	);
 }
-
-export default App;
