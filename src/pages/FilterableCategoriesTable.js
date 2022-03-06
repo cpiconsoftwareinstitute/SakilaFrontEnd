@@ -1,8 +1,7 @@
 import React from 'react';
-import ActorTable from './ActorTable';
+import CategoryTable from './CategoryTable';
 import SearchBar2 from './SearchBar2';
-
-class FilterableActorTable extends React.Component {
+class FilterableLanguageTable extends React.Component {
   
     constructor(props) {
       super(props);
@@ -32,16 +31,15 @@ class FilterableActorTable extends React.Component {
        
       <SearchBar2 
                   filterText={this.state.filterText} 
-                  
                   onFilterTextChange={this.handleFilterTextChange}
                   
                   
 
                   />
                  
-        <ActorTable actor={this.props.data} 
+        <CategoryTable category={this.props.data} 
                     filterText={this.state.filterText}
-                    afterYearOnly={this.state.afterYearOnly}
+                    
         />
         
         </div>
@@ -53,4 +51,4 @@ class FilterableActorTable extends React.Component {
   
       
 
-  export default FilterableActorTable;
+  export default FilterableLanguageTable;

@@ -1,53 +1,59 @@
-import { Link } from "../react-frames";
-import Films from "./Films";
 import axios from 'axios';
 import React,{useState} from 'react';
+import { Link } from "../react-frames";
+import Films from "./Films";
 
+function  UpdateFilms(){
 
-function AddNewFilm() {
-  const url ="http://localhost:8080/Homepage/AddFilms?title="
-  const [data, setData] = useState({
-       
-	   title:"",
-       description:"",
-	   release_year:"",
-	   language_id:"",
-	   rental_duration:"",
-	   length:"",
-	   rating:"",
-	   category_id:""
-
-       
-  }) 
-
+        const url ="http://localhost:8080/Homepage/updateFilms/"
+      
+        
+        const [data, setData] = useState({
+                film_id: "",  
+                title:"",
+                description:"",
+                release_year:"",
+                language_id:"",
+                rental_duration:"",
+                length:"",
+                rating:"",
+                
+       })
+ 
   function submit(e){
-  
-    e.preventDefault();
-    axios.post(url+data.title+"&description="+data.description+"&release_year="+data.release_year+"&language_id="+
-	data.language_id+"&rental_duration="+data.rental_duration+"&length="+data.length+"&rating="+data.rating
-	+"&category_id="+data.category_id,{
-		title: data.title,
+
+     e.preventDefault();
+     axios.put(url+data.film_id+"?title="+data.title+"&description="+data.description+"&release_year="+data.release_year+"&language_id="+
+     data.language_id+"&rental_duration="+data.rental_duration+"&length="+data.length+"&rating="+data.rating
+     +"&category_id="+data.category_id,{
+        film_id: data.film_id,
+        title: data.title,
 		description: data.description,
 		release_year: data.release_year,
 		language_id: data.language_id,
 		rental_duration: data.rental_duration,
 		length: data.length,
 		rating: data.rating,
-		category: data.category_id
-	}).then(res =>{console.log(res.data)})
-  }
-
-  function handle(e){
+        category: data.category_id})
+       .then(res =>{console.log(res.data)
+       
+       })
+     } 
+		 function handle(e){
   
-	const newdata ={...data}
-	newdata[e.target.id] = e.target.value
-	setData(newdata)
-	console.log(newdata)
- }
+			const newdata ={...data}
+			newdata[e.target.id] = e.target.value
+			setData(newdata)
+			console.log(newdata)
+		 }
 
 	return (
-		<>
-		<form onSubmit={(e)=> submit(e)}>
+        <>
+		  <form onSubmit={(e)=> submit(e)}>
+          <label>
+		   Film ID:
+              <input onChange={(e)=>handle(e)} id="film_id" value={data.film_id} type="number" name="film_id" />
+          </label><br/>
           <label>
 		   Title:
               <input onChange={(e)=>handle(e)} id="title" value={data.name} type="text" name="title" />
@@ -76,10 +82,11 @@ function AddNewFilm() {
 		  Rating:
               <input onChange={(e)=>handle(e)} id="rating" value={data.name} type="text" name="rating" />
           </label><br/>
-		  <label>
+          <label>
 		  Category ID:
               <input onChange={(e)=>handle(e)} id="category_id" value={data.category_id} type="number" name="category_id" />
-          </label><br/><br/>
+          </label><br/><br/>   
+          <br/>
           <button>Submit</button>
         </form>
 		<div>
@@ -91,4 +98,9 @@ function AddNewFilm() {
 	);
 }
 
-export default AddNewFilm;
+
+
+
+ // ========================================
+  
+ export default UpdateFilms;

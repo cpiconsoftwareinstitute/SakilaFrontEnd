@@ -1,5 +1,5 @@
 import React from 'react';
-import  LanguageRow from './LanguageRow';
+import  CategoryRow from './CategoryRow';
 
 
 class LanguageTable extends React.Component {
@@ -11,28 +11,28 @@ class LanguageTable extends React.Component {
    
    const rows = [];
    
-   this.props.language.forEach((language) => {
-     if (language.name.toLowerCase().indexOf(filterText) === -1) {
+   this.props.category.forEach((category) => {
+     if (category.name.toLowerCase().indexOf(filterText) === -1) {
        return;
      }
      
      rows.push(
        
        
-       <LanguageRow
-       language={language}
-       key={language.name} />
+       <CategoryRow
+       category={category}
+       key={category.name} />
          
      );
      
    });
    
    return (
-     <table border="1px solid black">
+     <table border="1px solid black" >
        <thead>
          <tr>
            <th>ID</th>
-           <th>Language</th>
+           <th>Category</th>
          </tr>
        </thead>
        <tbody>

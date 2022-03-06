@@ -4,7 +4,9 @@ import FilterableLanguageTable from "./FilterableLanguageTable";
 //import PostData from "./data/language.json"
 import Films from "./Films";
 import AddNewLanguage from "./AddNewLanguage";
+import DelLanguage from "./DelLanguage";
 import axios from 'axios';
+import UpdateLanguage from "./UpdateLanguage";
 
 //const a = [];
 //{PostData.map((postDetail,index)=>{return a.push(postDetail)})}
@@ -42,7 +44,14 @@ class language extends React.Component {
 			
 			<Link target="main" component={AddNewLanguage}>
 				Add a new language
-			</Link>		
+			</Link>	
+			<Link target="main" component={DelLanguage}>
+				Delete a language
+			</Link>
+			<Link target="main" component={UpdateLanguage}>
+				Update a language
+			</Link>
+
 			</dl>
 			<d1>
 			

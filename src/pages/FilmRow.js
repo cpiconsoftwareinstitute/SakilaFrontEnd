@@ -9,13 +9,22 @@ class FilmRow extends React.Component {
           
       
           return (
-            <div className="Board_film" >
-            <tr>
-              <td>{film.title}</td>
-              <td>{film.description}</td>
+          <>
+            <tr>              
+              <th>{film.title}</th>
+              <th>{film.film_id}</th>
+              <td>{film.release_year}</td>
               <td>{film.language.name}</td>
+              <td>{film.category.name}</td>
+              <td>{film.rating}</td>
             </tr>
+            <br/>
+            <div>
+             <b>Plot: </b>{film.description}
             </div>
+            <br/>
+            
+          </> 
           );
         }
       }

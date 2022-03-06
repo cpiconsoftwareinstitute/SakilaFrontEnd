@@ -5,10 +5,8 @@ class ActorTable extends React.Component {
     render() {
   
        const filterText = this.props.filterText.toLowerCase();
-       const afterYearOnly = this.props.afterYearOnly;
       
-     
-
+      
       
       const rows = [];
       
@@ -16,9 +14,7 @@ class ActorTable extends React.Component {
         if (actor.first_name.toLowerCase().indexOf(filterText) === -1) {
           return;
         }
-        if (afterYearOnly && actor.release_year < 1990) {
-          return;
-        }
+    
         rows.push(
           
           
@@ -31,16 +27,17 @@ class ActorTable extends React.Component {
       });
       
       return (
-        <table>
+        <table border="1px solid black">
           <thead>
             <tr>
-              <td>First Name</td>
-              <td>Last Name</td>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
             </tr>
+            {rows}
           </thead>
           <tbody>
-         
-           {rows}
+
            
           </tbody>
         </table>

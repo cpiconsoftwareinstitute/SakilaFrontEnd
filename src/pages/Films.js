@@ -1,10 +1,11 @@
 import React from "react";
 import FilterableFilmsTable from "./FilterableFilmsTable";
 import { Link } from "../react-frames";
-import background from './images/films_background.jpg';
-import "./css/style.css"
+import "../index.css"
 import AddNewFilm from "./AddNewFilm";
 import axios from 'axios';
+import UpdateFilms from "./UpdateFilms";
+import DelFilms from "./DelFilms";
 
 class Films extends React.Component{
 
@@ -32,6 +33,12 @@ class Films extends React.Component{
 			</dl>
 			<Link target="main" component={AddNewFilm}>
 				Add a new film
+			</Link>
+			<Link target="main" component={DelFilms}>
+				Delete a film
+			</Link>
+			<Link target="main" component={UpdateFilms}>
+				Update a Films
 			</Link>
 			<dl>
 			 			

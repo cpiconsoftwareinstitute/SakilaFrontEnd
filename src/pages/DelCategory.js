@@ -1,11 +1,11 @@
 import { Link } from "../react-frames";
 import Films from "./Films";
 import axios from 'axios';
-import Language from "./Language";
+import Categories from "./Categories";
 import React,{useState} from 'react';
 
-function AddNewLanguage() {
-		const url ="http://localhost:8080/Homepage/AddLanguages?name="
+function DelActor() {
+		const url ="http://localhost:8080/Homepage/DeleteCategories/"
 		const [data, setData] = useState({
 			   
 			   name:""
@@ -14,8 +14,8 @@ function AddNewLanguage() {
 		 function submit(e){
   
 			e.preventDefault();
-			axios.post(url+data.name,{
-			  name: data.name})
+			axios.delete(url+data.category_id,{
+			  category_id: data.category_id})
 			  .then(res =>{console.log(res.data)
 			  
 			  })
@@ -32,10 +32,10 @@ function AddNewLanguage() {
 		<div>
       <form onSubmit={(e)=> submit(e)}>
           
-	      
           <label>
-		  	  Language:
-              <input onChange={(e)=>handle(e)} id="name" value={data.name} type="text" placeholder="name"/>
+		  	  Category ID:
+              <input onChange={(e)=>handle(e)} id="category_id" value={data.category_id} 
+              type="number" placeholder="category_id"/>
           </label>
           <button>Submit</button>
         </form>
@@ -43,12 +43,11 @@ function AddNewLanguage() {
         <Link target="main" component={Films}>
 				Go to Films
 	    </Link>
-
-		<Link target="main" component={Language}>
-				Go to Languages
+        <Link target="main" component={Categories}>
+				Go to Categories
 		</Link>
 		</>
 	);
 }
 
-export default AddNewLanguage;
+export default DelActor;

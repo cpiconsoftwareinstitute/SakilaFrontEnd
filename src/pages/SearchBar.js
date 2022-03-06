@@ -6,6 +6,7 @@ class SearchBar extends React.Component {
 
     const filterText = this.props.filterText;
     const afterYearOnly = this.props.afterYearOnly;
+    
 
     return (
       <form>
@@ -14,7 +15,7 @@ class SearchBar extends React.Component {
         <p>
         <input type="checkbox" ckecked = {afterYearOnly} 
         onChange={(e)=>this.props.onAfterYearChange(e.target.checked)}/>
-          Only show films after 1990
+          Only show films of the 2019
         </p>
       </form>
     );

@@ -5,7 +5,8 @@ import { Link } from "../react-frames";
 import 	Language from "./Language";
 import AddNewActor from "./AddNewActor";
 import axios from 'axios';
-
+import DelActor from "./DelActor";
+import UpdateActor from "./UpdateActor";
 class Actor extends React.Component{
 	
 	
@@ -38,11 +39,20 @@ class Actor extends React.Component{
 			
 			<Link target="main" component={AddNewActor}>
 				Add a new actor
-			</Link>		
+			</Link>	
+
+			<Link target="main" component={DelActor}>
+				Delete an actor
+			</Link>
+			<Link target="main" component={UpdateActor}>
+				Update an actor
+			</Link>
 			</dl>
 			<Link target="main" component={Language}>
 				Go to Languages
 			</Link>
+			
+		
  
 		</>
 	);

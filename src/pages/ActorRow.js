@@ -9,13 +9,14 @@ class ActorRow extends React.Component {
           
       
           return (
-            <div className="Board_film">
-            
+            <>
             <tr>
-              <th>{actor.first_name}</th>
-              <th>{actor.last_name}</th>
+             <td>{actor.actor_id}</td>
+             <td>{actor.first_name}</td>
+             <td>{actor.last_name}</td>
             </tr>
-            </div>
+            <br/>
+            </>
           );
         }
       }

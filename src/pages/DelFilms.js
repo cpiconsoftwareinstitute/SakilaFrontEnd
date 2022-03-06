@@ -4,18 +4,18 @@ import axios from 'axios';
 import Language from "./Language";
 import React,{useState} from 'react';
 
-function AddNewLanguage() {
-		const url ="http://localhost:8080/Homepage/AddLanguages?name="
+function DelFilms() {
+		const url ="http://localhost:8080/Homepage/DeleteFilms/"
 		const [data, setData] = useState({
 			   
-			   name:""
+			   film_id:""
 			   
 	  }) 
 		 function submit(e){
   
 			e.preventDefault();
-			axios.post(url+data.name,{
-			  name: data.name})
+			axios.delete(url+data.film_id,{
+			  film_id: data.film_id})
 			  .then(res =>{console.log(res.data)
 			  
 			  })
@@ -32,10 +32,10 @@ function AddNewLanguage() {
 		<div>
       <form onSubmit={(e)=> submit(e)}>
           
-	      
           <label>
-		  	  Language:
-              <input onChange={(e)=>handle(e)} id="name" value={data.name} type="text" placeholder="name"/>
+		  	  Film ID:
+              <input onChange={(e)=>handle(e)} id="film_id" value={data.film_id} 
+              type="number" placeholder="film_id"/>
           </label>
           <button>Submit</button>
         </form>
@@ -43,12 +43,11 @@ function AddNewLanguage() {
         <Link target="main" component={Films}>
 				Go to Films
 	    </Link>
-
-		<Link target="main" component={Language}>
+        <Link target="main" component={Language}>
 				Go to Languages
 		</Link>
 		</>
 	);
 }
 
-export default AddNewLanguage;
+export default DelFilms;

@@ -1,11 +1,11 @@
 import { Link } from "../react-frames";
 import Films from "./Films";
 import axios from 'axios';
-import Language from "./Language";
+import Categories from "./Categories";
 import React,{useState} from 'react';
 
 function AddNewLanguage() {
-		const url ="http://localhost:8080/Homepage/AddLanguages?name="
+		const url ="http://localhost:8080/Homepage/AddCategories?name="
 		const [data, setData] = useState({
 			   
 			   name:""
@@ -34,7 +34,7 @@ function AddNewLanguage() {
           
 	      
           <label>
-		  	  Language:
+		  	  Category:
               <input onChange={(e)=>handle(e)} id="name" value={data.name} type="text" placeholder="name"/>
           </label>
           <button>Submit</button>
@@ -44,8 +44,8 @@ function AddNewLanguage() {
 				Go to Films
 	    </Link>
 
-		<Link target="main" component={Language}>
-				Go to Languages
+		<Link target="main" component={Categories}>
+				Go to Categories
 		</Link>
 		</>
 	);

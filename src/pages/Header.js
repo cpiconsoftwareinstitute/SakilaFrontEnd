@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import Logo from './images/film_pic.jpg';
-import './css/style.css';
+import Logo2 from '../images/download.jpg'
+import '../index.css';
 const Header = ({
 	frameBorder,
 	setFrameBorder,
-	noResize,
-	setNoResize,
-	scrolling,
-	setScrolling
 }) => {
 	return (
 		<>
 
-			<div >
-			   <img style={{width: '240px', height: '155px'}} src={Logo} alt="Logo" class="center"/>
+			<div  class="center">
+			<tr>
+			  <th><img style={{width: '240px', height: '155px'}} src={Logo} alt="Logo" /></th>
+              
+            </tr>
+			   
 	        </div>
 		        
 			<input
@@ -24,21 +25,6 @@ const Header = ({
 			/>
 			<label htmlFor="frameBorder">Frameborder</label>
 
-			<input
-				name="noResize"
-				type="checkbox"
-				checked={!!noResize}
-				onChange={() => setNoResize(!noResize)}
-			/>
-			<label htmlFor="noResize">No resize</label>
-
-			<input
-				name="scrolling"
-				type="checkbox"
-				checked={!!scrolling}
-				onChange={() => setScrolling(!scrolling)}
-			/>
-			<label htmlFor="scrolling">Scrolling</label>
 			
 		</>
 	);

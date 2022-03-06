@@ -8,26 +8,22 @@ import Header from "./pages/Header";
 export default function App() {
 	// Some state for toggling the border, resize and scrolling properties
 	let [frameBorder, setFrameBorder] = useState(true);
-	let [noResize, setNoResize] = useState(false);
+	
 	let [scrolling, setScrolling] = useState(true);
   let headerProps = {
 		frameBorder,
 		setFrameBorder,
-		noResize,
-		setNoResize,
 		scrolling,
 		setScrolling
 	};
 
 	let frameProps = {
-		frameBorder,
-		noResize,
-		scrolling,
-		stylesheet: "styles.css" // Shared stylesheet for all frames
+		frameBorder,	
+		scrolling		
 	};
 
 	return (
-		<Frames title="React Frames">
+		<Frames title="Movie_App">
 			<Frameset rows="120,*" key={frameBorder}>
 				<Frame name="header" {...frameProps}>
         <Header {...headerProps} />

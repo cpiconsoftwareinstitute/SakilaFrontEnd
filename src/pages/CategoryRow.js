@@ -5,15 +5,15 @@ import UpdateLanguage from './UpdateLanguage';
 class LanguageRow extends React.Component {
 
     render() {
-        const language = this.props.language;
+        const category = this.props.category;
         
         
         return (
 
           <>
             <tr>
-            <td>{language.language_id}</td>
-            <td>{language.name}</td>
+            <td>{category.category_id}</td>
+            <td>{category.name}</td>
             </tr>
             <br/>
           

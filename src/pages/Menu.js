@@ -2,6 +2,7 @@ import React from "react";
 import Link from "../react-frames/Link";
 import Films from "./Films";
 import Actor from "./Actor";
+import Categories from "./Categories";
 import Language from "./Language";
 import { useStyle } from "../react-frames";
 
@@ -23,6 +24,11 @@ function Menu() {
 			<li>
 				<Link target="main" component={Language}>
 					Languages
+				</Link>
+			</li>
+			<li>
+				<Link target="main" component={Categories}>
+					Categories
 				</Link>
 			</li>
 		</ul>
